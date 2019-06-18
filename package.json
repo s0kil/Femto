@@ -1,0 +1,49 @@
+{
+  "name": "femto",
+  "description": "femto",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "PORT=8000 sapper dev",
+    "build": "sapper build --legacy",
+    "export": "sapper export --legacy",
+    "start": "PORT=8000 node __sapper__/build"
+  },
+  "dependencies": {
+    "@moltin/sdk": "^3.22.0",
+    "dotenv": "^8.0.0",
+    "fast-json-body": "^1.1.0",
+    "graphql": "^14.3.1",
+    "like-json": "^1.0.19",
+    "node-cache": "^4.2.0",
+    "polka": "^0.5.2",
+    "shrink-ray-current": "^4.0.0",
+    "sirv": "^0.4.0",
+    "string-hash": "^1.1.3",
+    "tokenizr": "^1.5.4"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sapper": "^0.27.0",
+    "svelte": "^3.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "rollup": "^1.0.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "optionalDependencies": {
+    "iltorb": "^2.4.3",
+    "node-zopfli-es": "^1.0.3",
+    "node-localstorage": "^1.3.1"
+  },
+  "engines": {
+    "node": "11.x"
+  }
+}
