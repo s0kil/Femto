@@ -78,7 +78,7 @@
     {#each products as product (product.id)}
       <div class="product">
         <a href="store/{product.id}" rel="prefetch">
-          <Image size={300} {product} />
+          <Image {product} />
           <p>{product.name}</p>
         </a>
       </div>

@@ -45,7 +45,7 @@
   {#if product}
     <div class="product">
       <div class="image">
-        <Image size={600} {product} />
+        <Image {product} />
       </div>
       <h1>{product.name}</h1>
     </div>
