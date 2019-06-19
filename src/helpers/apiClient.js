@@ -4,7 +4,6 @@ const API_URL =
     : "https://evening-spire-45350.herokuapp.com/api";
 
 export async function requestApi(queryData) {
-  // TODO : Do Not Hard Code API URL
   return fetch(API_URL, {
     method: "POST",
     headers: {

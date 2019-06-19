@@ -13,6 +13,11 @@
     margin: 0 auto;
     box-sizing: border-box;
   }
+
+  :global(.visible) {
+    transition: opacity 100ms;
+    opacity: 1 !important;
+  }
 </style>
 
 <Nav {segment} />

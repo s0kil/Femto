@@ -1,4 +1,4 @@
-/* https://github.com/rse/graphql-query-compress */
+//! Special Thanks To: https://github.com/rse/graphql-query-compress
 
 import Tokenizr from "tokenizr";
 
@@ -21,6 +21,7 @@ import Tokenizr from "tokenizr";
 
 // the API function: compress a GraphQL query string
 export function compactGraphQLQuery(query) {
+  console.time("compactGraphQLQuery");
   let lexer = new Tokenizr();
 
   /*  configure lexical analysis  */
@@ -94,5 +95,7 @@ export function compactGraphQLQuery(query) {
   tokens.forEach(token => {
     output += token.value;
   });
+
+  console.timeEnd("compactGraphQLQuery");
   return output;
 }

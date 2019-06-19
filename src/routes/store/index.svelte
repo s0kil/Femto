@@ -17,16 +17,19 @@
     `;
 
     const apiData = await requestApi(productsQuery());
-    return { products: apiData.data.products };
+    return {
+      products: apiData.data.products,
+      errors: apiData.errors
+    };
   }
 </script>
 
 <script>
-  import { fade } from "svelte/transition";
+  import Image from "../../components/Product/Image.svelte";
 
-  import { productImageUrl } from "./_utils.js";
+  export let products, errors;
 
-  export let products;
+  $: if (errors) errors.forEach(error => console.error(error.message));
 </script>
 
 <style>
@@ -36,17 +39,13 @@
     align-items: center;
   }
 
-  img {
-    display: block;
-    max-height: 200px;
-    margin: 0 auto;
-  }
-
   .product {
     transition: all 3s;
     border: 1px solid black;
     margin: 0.4rem;
     padding: 0.4rem;
+
+    min-height: 200px;
   }
 
   a {
@@ -55,15 +54,17 @@
   }
 </style>
 
+<svelte:head>
+  <title>Store</title>
+</svelte:head>
+
 <section>
   {#if products}
     {#each products as product (product.id)}
-      <div class="product" in:fade={{ delay: 100, duration: 100 }}>
+      <div class="product">
         <a href="store/{product.id}" rel="prefetch">
-          <img
-            src={productImageUrl(product.main_image.href)}
-            alt={product.name} />
           <p>{product.name}</p>
+          <Image {product} />
         </a>
       </div>
     {/each}

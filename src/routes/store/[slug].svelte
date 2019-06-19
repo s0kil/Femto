@@ -26,22 +26,14 @@
 </script>
 
 <script>
-  import { fade } from "svelte/transition";
-  import { productImageUrl } from "./_utils.js";
-
+  import Image from "../../components/Product/Image.svelte";
   export let product;
 </script>
 
-<style>
-  img {
-    max-height: 300px;
-  }
-</style>
-
 <section>
   {#if product}
-    <div class="product" in:fade={{ delay: 100, duration: 100 }}>
-      <img src={productImageUrl(product.main_image.href)} alt={product.name} />
+    <div class="product">
+      <Image {product} />
       <p>{product.name}</p>
     </div>
   {/if}

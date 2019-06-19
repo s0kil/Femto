@@ -1,6 +1,6 @@
-import { compactGraphQLQuery } from "./compactGraphqlQuery.js";
+//! Special Thanks To: https://github.com/yoshuawuyts/nanographq
 
-/* https://github.com/yoshuawuyts/nanographql */
+import { compactGraphQLQuery } from "./compactGraphqlQuery.js";
 
 const getOperationName = /(query|mutation) ?([\w\d-_]+)? ?\(.*?\)? \{/;
 
