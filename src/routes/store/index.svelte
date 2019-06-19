@@ -44,8 +44,6 @@
     border: 1px solid black;
     margin: 0.4rem;
     padding: 0.4rem;
-
-    min-height: 200px;
   }
 
   a {
@@ -64,7 +62,7 @@
       <div class="product">
         <a href="store/{product.id}" rel="prefetch">
           <p>{product.name}</p>
-          <Image {product} />
+          <Image size={200} {product} />
         </a>
       </div>
     {/each}

@@ -1,3 +1,5 @@
-export const transformImageUrl = href =>
+export const transformImageUrl = (href, size) =>
   // TODO : Check For WebP Support
-  `https://images.weserv.nl/?url=${href}&output=webp`;
+  `https://images.weserv.nl/?url=${href}${
+    size ? `&w=${size}&h=${size}` : ``
+  }&output=webp&il`;
