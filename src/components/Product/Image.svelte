@@ -2,7 +2,8 @@
   import { onMount } from "svelte";
   import { transformImageUrl } from "../../helpers/utils.js";
 
-  export let product, size;
+  export let product,
+    size = null;
 </script>
 
 <style>

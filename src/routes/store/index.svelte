@@ -17,9 +17,13 @@
     `;
 
     const apiData = await requestApi(productsQuery());
+
+    const errors = apiData.errors;
+    if (errors) this.error(500, errors[0]);
+
     return {
       products: apiData.data.products,
-      errors: apiData.errors
+      errors
     };
   }
 </script>
