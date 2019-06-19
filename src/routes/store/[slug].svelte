@@ -30,11 +30,24 @@
   export let product;
 </script>
 
+<style>
+  .product {
+    text-align: center;
+  }
+
+  .image {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+</style>
+
 <section>
   {#if product}
     <div class="product">
-      <Image {product} />
-      <p>{product.name}</p>
+      <div class="image">
+        <Image size={600} {product} />
+      </div>
+      <h1>{product.name}</h1>
     </div>
   {/if}
 </section>

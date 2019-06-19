@@ -38,16 +38,29 @@
 
 <style>
   section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem 1rem;
+  }
+
+  @media (max-width: 50rem) {
+    section {
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 30rem) {
+    section {
+      grid-template-rows: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   .product {
-    transition: all 3s;
-    border: 1px solid black;
-    margin: 0.4rem;
-    padding: 0.4rem;
+    text-align: center;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
   }
 
   a {
@@ -65,8 +78,8 @@
     {#each products as product (product.id)}
       <div class="product">
         <a href="store/{product.id}" rel="prefetch">
+          <Image size={300} {product} />
           <p>{product.name}</p>
-          <Image size={200} {product} />
         </a>
       </div>
     {/each}
