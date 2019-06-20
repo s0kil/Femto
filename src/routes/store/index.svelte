@@ -19,7 +19,7 @@
     const apiData = await requestApi(productsQuery());
 
     const errors = apiData.errors;
-    if (errors) this.error(500, errors[0]);
+    if (errors) this.error(500, errors[0].message);
 
     return {
       products: apiData.data.products,
@@ -30,6 +30,8 @@
 
 <script>
   import Image from "../../components/Product/Image.svelte";
+  // import BuyButton from "../../shopkit/components/BuyButton.svelte";
+  import Loadable from "svelte-loadable/Loadable.svelte";
 
   export let products, errors;
 
@@ -61,6 +63,7 @@
   .product {
     text-align: center;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+    padding: 0.4rem;
   }
 
   a {
@@ -81,6 +84,15 @@
           <Image {product} />
           <p>{product.name}</p>
         </a>
+        <!-- <BuyButton productId={product.id} /> -->
+
+        <Loadable
+          loader={() => import('../../shopkit/components/BuyButton.svelte')}>
+          <div slot="success" let:component>
+            <svelte:component this={component} productId={product.id} />
+          </div>
+        </Loadable>
+
       </div>
     {/each}
   {/if}

@@ -10,7 +10,7 @@ const dev = NODE_ENV === "development";
 
 function api(request, response, next) {
   if (request.method === "POST" && request.path === "/api") {
-    apiHandler(request, response, next);
+    apiHandler(request, response);
   } else {
     next();
   }

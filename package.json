@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@moltin/sdk": "^3.22.0",
+    "@storeon/localstorage": "^0.5.1",
+    "@storeon/svelte": "^0.3.0",
     "dotenv": "^8.0.0",
     "fast-json-body": "^1.1.0",
     "graphql": "^14.3.1",
@@ -19,6 +21,7 @@
     "shrink-ray-current": "^4.0.0",
     "sirv": "^0.4.0",
     "string-hash": "^1.1.3",
+    "svelte-loadable": "^1.0.1",
     "tokenizr": "^1.5.4"
   },
   "devDependencies": {

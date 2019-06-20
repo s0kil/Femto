@@ -6,6 +6,7 @@ import { schema } from "./schema.js";
 import stringHash from "string-hash";
 // import json from "like-json";
 
+// TODO : Figure Out A Way To Create Persistent Cache With Updates
 const queryCache = new cache({
   stdTTL: 60 * 60 * 1 // cache for 1 Hour
 });

@@ -1,3 +1,4 @@
+require("dotenv").config();
 import resolve from "rollup-plugin-node-resolve";
 import replace from "rollup-plugin-replace";
 import commonjs from "rollup-plugin-commonjs";
@@ -23,7 +24,11 @@ export default {
     plugins: [
       replace({
         "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode)
+        "process.env.NODE_ENV": JSON.stringify(mode),
+        "process.env.DEV_API_URL": JSON.stringify(process.env.DEV_API_URL),
+        "process.env.MOLTIN_CLIENT_ID": JSON.stringify(
+          process.env.MOLTIN_CLIENT_ID
+        )
       }),
       svelte({
         dev,
