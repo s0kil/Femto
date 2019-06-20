@@ -7,10 +7,40 @@ import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
+import minifyLiterals from "rollup-plugin-minify-html-literals";
+import graphqlQueryCompress from "graphql-query-compress";
+import MagicString from "magic-string";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const graphQLQueryCompactor = () => ({
+  markup({ content }) {
+    const GRAPHQL = "@graphql";
+    const result = new MagicString(content);
+
+    const queryStartIndex = content.indexOf(GRAPHQL);
+    const queryEndIndex = content.lastIndexOf(GRAPHQL);
+
+    const queryContent = result.slice(
+      queryStartIndex + GRAPHQL.length,
+      queryEndIndex
+    );
+
+    if (queryStartIndex != -1 && queryEndIndex != -1) {
+      result.overwrite(
+        queryStartIndex,
+        queryEndIndex + GRAPHQL.length,
+        graphqlQueryCompress(queryContent)
+      );
+    }
+
+    return {
+      code: result.toString()
+    };
+  }
+});
 
 const onwarn = (warning, onwarn) =>
   (warning.code === "CIRCULAR_DEPENDENCY" &&
@@ -33,7 +63,11 @@ export default {
       svelte({
         dev,
         hydratable: true,
-        emitCss: true
+        emitCss: true,
+        preprocess: graphQLQueryCompactor()
+      }),
+      minifyLiterals({
+        failOnError: true
       }),
       resolve({
         browser: true
@@ -83,7 +117,11 @@ export default {
       }),
       svelte({
         generate: "ssr",
-        dev
+        dev,
+        preprocess: graphQLQueryCompactor()
+      }),
+      minifyLiterals({
+        failOnError: true
       }),
       resolve(),
       commonjs()

@@ -4,6 +4,7 @@
 
   export async function preload({ params, query }) {
     const productQuery = graphql`
+      @graphql
       query($id: ID!) {
         product(id: $id) {
           id
@@ -14,6 +15,7 @@
           }
         }
       }
+      @graphql
     `;
 
     const variables = {

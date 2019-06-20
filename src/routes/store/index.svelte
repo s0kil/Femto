@@ -4,6 +4,7 @@
 
   export async function preload({ params, query }) {
     const productsQuery = graphql`
+      @graphql
       query {
         products {
           id
@@ -14,6 +15,7 @@
           }
         }
       }
+      @graphql
     `;
 
     const apiData = await requestApi(productsQuery());
