@@ -28,6 +28,7 @@ export default {
         "process.browser": true,
         "process.env.NODE_ENV": JSON.stringify(mode),
         "process.env.DEV_API_URL": JSON.stringify(process.env.DEV_API_URL),
+        "process.env.PROD_API_URL": JSON.stringify(process.env.PROD_API_URL),
         "process.env.MOLTIN_CLIENT_ID": JSON.stringify(
           process.env.MOLTIN_CLIENT_ID
         )
@@ -85,7 +86,12 @@ export default {
     plugins: [
       replace({
         "process.browser": false,
-        "process.env.NODE_ENV": JSON.stringify(mode)
+        "process.env.NODE_ENV": JSON.stringify(mode),
+        "process.env.DEV_API_URL": JSON.stringify(process.env.DEV_API_URL),
+        "process.env.PROD_API_URL": JSON.stringify(process.env.PROD_API_URL),
+        "process.env.MOLTIN_CLIENT_ID": JSON.stringify(
+          process.env.MOLTIN_CLIENT_ID
+        )
       }),
       svelte({
         generate: "ssr",

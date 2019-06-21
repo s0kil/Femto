@@ -1,7 +1,7 @@
 const API_URL =
   process.env.NODE_ENV === "development"
-    ? "http://0.0.0.0:8000/api"
-    : "https://evening-spire-45350.herokuapp.com/api";
+    ? process.env.DEV_API_URL
+    : process.env.PROD_API_URL;
 
 export async function requestApi(queryData) {
   return fetch(API_URL, {
