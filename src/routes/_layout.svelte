@@ -1,4 +1,5 @@
 <script>
+  import "../styles/Global.svelte";
   import "../shopkit/components/Theme.svelte";
 
   import Nav from "../components/Nav.svelte";
