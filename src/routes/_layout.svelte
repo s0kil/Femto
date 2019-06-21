@@ -2,9 +2,18 @@
   import "../styles/Global.svelte";
   import "../shopkit/components/Theme.svelte";
 
+  import onIdle from "on-idle";
+
+  import Loadable from "svelte-loadable/Loadable.svelte";
   import Nav from "../components/Nav.svelte";
 
   export let segment;
+
+  let idle = false;
+  const waitIdle = onIdle(() => {
+    idle = true;
+    waitIdle();
+  });
 </script>
 
 <style>
@@ -33,3 +42,11 @@
 <main>
   <slot />
 </main>
+
+{#if idle}
+  <Loadable loader={() => import('../shopkit/components/Modal/Modal.svelte')}>
+    <div slot="success" let:component>
+      <svelte:component this={component} stripeKey={process.env.STRIPE_KEY} />
+    </div>
+  </Loadable>
+{/if}

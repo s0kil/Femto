@@ -1,5 +1,5 @@
 <script>
-  import css from "../helpers/css.js";
+  import _css from "../helpers/css.js";
 
   import Label from "./Label.svelte";
 
@@ -8,7 +8,7 @@
   // TODO : Set Up Error Handler
   const error = null;
 
-  css({
+  _css({
     inputBorder: error ? "var(--error)" : "var(--border)"
   });
 </script>

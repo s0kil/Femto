@@ -29,6 +29,7 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
         "process.env.DEV_API_URL": JSON.stringify(process.env.DEV_API_URL),
         "process.env.PROD_API_URL": JSON.stringify(process.env.PROD_API_URL),
+        "process.env.STRIPE_KEY": JSON.stringify(process.env.STRIPE_KEY),
         "process.env.MOLTIN_CLIENT_ID": JSON.stringify(
           process.env.MOLTIN_CLIENT_ID
         )
@@ -89,6 +90,7 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
         "process.env.DEV_API_URL": JSON.stringify(process.env.DEV_API_URL),
         "process.env.PROD_API_URL": JSON.stringify(process.env.PROD_API_URL),
+        "process.env.STRIPE_KEY": JSON.stringify(process.env.STRIPE_KEY),
         "process.env.MOLTIN_CLIENT_ID": JSON.stringify(
           process.env.MOLTIN_CLIENT_ID
         )

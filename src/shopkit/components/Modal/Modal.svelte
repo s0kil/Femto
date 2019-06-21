@@ -49,6 +49,9 @@
   }
 
   onMount(() => {
+    // Send OAuth Request
+    cart.dispatch("getCart");
+
     loadAsset(["https://js.stripe.com/v3"], "stripe", {
       numRetries: 3
     });
