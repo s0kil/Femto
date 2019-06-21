@@ -16,7 +16,6 @@
   export let optimizeImage = true;
 
   const { href: imageHref } = image;
-  // TODO : Check If Client Supports WebP Format
   // https://images.weserv.nl/
   const href = optimizeImage
     ? `https://images.weserv.nl/?url=${imageHref}&w=75&h=75&output=webp&il`

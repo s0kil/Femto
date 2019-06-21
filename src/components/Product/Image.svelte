@@ -16,7 +16,13 @@
   }
 </style>
 
-<img
-  on:load={() => this.classList.add('visible')}
-  src={transformImageUrl(product.main_image.href, size)}
-  alt={product.name} />
+{#await transformImageUrl(product.main_image.href, size)}
+  <p>Loading Image</p>
+{:then imageUrl}
+  <img
+    on:load={() => this.classList.add('visible')}
+    src={imageUrl}
+    alt={product.name} />
+{:catch}
+  <p>Could Not Load Image</p>
+{/await}

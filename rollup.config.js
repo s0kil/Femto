@@ -8,39 +8,11 @@ import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import minifyLiterals from "rollup-plugin-minify-html-literals";
-import graphqlQueryCompress from "graphql-query-compress";
-import MagicString from "magic-string";
+import graphQLQueryCompactor from "./tools/graphQLQueryCompactor.js";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
-
-const graphQLQueryCompactor = () => ({
-  markup({ content }) {
-    const GRAPHQL = "@graphql";
-    const result = new MagicString(content);
-
-    const queryStartIndex = content.indexOf(GRAPHQL);
-    const queryEndIndex = content.lastIndexOf(GRAPHQL);
-
-    const queryContent = result.slice(
-      queryStartIndex + GRAPHQL.length,
-      queryEndIndex
-    );
-
-    if (queryStartIndex != -1 && queryEndIndex != -1) {
-      result.overwrite(
-        queryStartIndex,
-        queryEndIndex + GRAPHQL.length,
-        graphqlQueryCompress(queryContent)
-      );
-    }
-
-    return {
-      code: result.toString()
-    };
-  }
-});
 
 const onwarn = (warning, onwarn) =>
   (warning.code === "CIRCULAR_DEPENDENCY" &&

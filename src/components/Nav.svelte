@@ -50,6 +50,7 @@
 
 <nav>
   <ul>
+
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">Home</a>
     </li>
@@ -71,5 +72,6 @@
         Blog
       </a>
     </li>
+
   </ul>
 </nav>
