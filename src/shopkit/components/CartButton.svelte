@@ -4,8 +4,8 @@
 
   import Button from "./Button.svelte";
 
-  export let moltinText = "Cart";
-  export let moltinShowTotal = false;
+  export let text = "Cart";
+  export let showTotal = false;
 
   const cart = connect("cart");
   const modal = connect("modal");
@@ -15,7 +15,7 @@
 
   $: buttonSuffix =
     subTotal || count
-      ? ` (${moltinShowTotal ? subTotal : pluralize(count, "item")})`
+      ? ` (${showTotal ? subTotal : pluralize(count, "item")})`
       : null;
 </script>
 
@@ -23,6 +23,6 @@
   className="shopkit-cart-button"
   buttonType="primary"
   on:click={() => modal.dispatch('openCart')}>
-   {moltinText}
+   {text}
   {#if buttonSuffix}{buttonSuffix}{/if}
 </Button>

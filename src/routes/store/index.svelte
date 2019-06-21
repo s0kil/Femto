@@ -31,9 +31,8 @@
 </script>
 
 <script>
-  import Image from "../../components/Product/Image.svelte";
-  // import BuyButton from "../../shopkit/components/BuyButton.svelte";
   import Loadable from "svelte-loadable/Loadable.svelte";
+  import Image from "../../components/Product/Image.svelte";
 
   export let products, errors;
 
@@ -82,11 +81,11 @@
   {#if products}
     {#each products as product (product.id)}
       <div class="product">
+
         <a href="store/{product.id}" rel="prefetch">
-          <Image {product} />
+          <Image {product} size={300} />
           <p>{product.name}</p>
         </a>
-        <!-- <BuyButton productId={product.id} /> -->
 
         <Loadable
           loader={() => import('../../shopkit/components/BuyButton.svelte')}>

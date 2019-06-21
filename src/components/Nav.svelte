@@ -1,4 +1,6 @@
 <script>
+  import CartButton from "../shopkit/components/CartButton.svelte";
+
   export let segment;
 </script>
 
@@ -7,6 +9,8 @@
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;
     padding: 0 1em;
+
+    display: flex;
   }
 
   ul {
@@ -46,6 +50,13 @@
     padding: 1em 0.5em;
     display: block;
   }
+
+  .cart-button {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+  }
 </style>
 
 <nav>
@@ -72,6 +83,9 @@
         Blog
       </a>
     </li>
-
   </ul>
+
+  <div class="cart-button">
+    <CartButton />
+  </div>
 </nav>
