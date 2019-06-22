@@ -1,3 +1,5 @@
+import json from "like-json";
+
 const getOperationName = /(query|mutation) ?([\w\d-_]+)? ?\(.*?\)? \{/;
 
 export default function graphql(queryString) {
@@ -11,13 +13,13 @@ export default function graphql(queryString) {
   return function(variables) {
     let data = { query: queryString };
 
-    if (variables) data.variables = JSON.stringify(variables);
+    if (variables) data.variables = variables;
 
     if (name && name.length) {
       let operationName = name[2];
       if (operationName) data.operationName = name[2];
     }
 
-    return JSON.stringify(data);
+    return json.stringify(data, variables ? 2 : 1);
   };
 }

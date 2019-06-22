@@ -26,11 +26,12 @@ export async function apiHandler(request, response) {
       );
     }
 
-    const variables =
-      body.variables !== undefined ? JSON.parse(body.variables) : null;
+    const variables = body.variables !== undefined ? body.variables : null;
 
-    // Compute A Unique String Hash Based On GraphQL (Query + Variables)
-    const queryHash = stringHash(body.query + body.variables || "");
+    // Compute A Unique Number Hash Based On GraphQL (Query + Variables || Query)
+    let queryHash;
+    if (variables) queryHash = stringHash(body.query + variables.id);
+    else queryHash = stringHash(body.query);
 
     queryCache.get(queryHash, (err, value) => {
       if (!err) {
