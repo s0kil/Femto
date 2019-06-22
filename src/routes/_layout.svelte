@@ -3,6 +3,7 @@
   import "../shopkit/components/Theme.svelte";
 
   import onIdle from "on-idle";
+  import { afterUpdate } from "svelte";
 
   import Loadable from "svelte-loadable/Loadable.svelte";
   import Nav from "../components/Nav.svelte";
@@ -10,9 +11,16 @@
   export let segment;
 
   let idle = false;
-  const waitIdle = onIdle(() => {
+  const waitUntilIdle = onIdle(() => {
     idle = true;
-    waitIdle();
+    waitUntilIdle();
+  });
+
+  afterUpdate(() => {
+    if (idle)
+      import("quicklink/dist/quicklink.mjs").then(({ default: quicklink }) =>
+        quicklink()
+      );
   });
 </script>
 
@@ -33,8 +41,8 @@
 </style>
 
 <svelte:head>
-  <link rel="dns-prefetch" href="https://api.moltin.com" />
   <link href="https://api.moltin.com" rel="preconnect" crossorigin />
+  <link rel="dns-prefetch" href="https://api.moltin.com" />
 </svelte:head>
 
 <Nav {segment} />

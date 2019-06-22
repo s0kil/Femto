@@ -28,8 +28,9 @@
 </script>
 
 <script>
-  import Loadable from "svelte-loadable/Loadable.svelte";
   import Image from "../../components/Product/Image.svelte";
+  import BuyButton from "../../shopkit/components/BuyButton.svelte";
+
   export let product;
 </script>
 
@@ -54,12 +55,7 @@
 
       <h1>{product.name}</h1>
 
-      <Loadable
-        loader={() => import('../../shopkit/components/BuyButton.svelte')}>
-        <div slot="success" let:component>
-          <svelte:component this={component} productId={product.id} />
-        </div>
-      </Loadable>
+      <BuyButton productId={product.id} />
 
     </div>
   {/if}
