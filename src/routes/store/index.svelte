@@ -20,13 +20,9 @@
 
     const apiData = await requestApi(productsQuery());
 
-    const errors = apiData.errors;
-    if (errors) this.error(500, errors[0].message);
+    if (apiData.errors) this.error(500, errors[0].message);
 
-    return {
-      products: apiData.data.products,
-      errors
-    };
+    return { products: apiData.data.products };
   }
 </script>
 
@@ -34,9 +30,7 @@
   import Image from "../../components/Product/Image.svelte";
   import BuyButton from "../../shopkit/components/BuyButton.svelte";
 
-  export let products, errors;
-
-  $: if (errors) errors.forEach(error => console.error(error.message));
+  export let products;
 </script>
 
 <style>

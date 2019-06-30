@@ -23,6 +23,10 @@
     };
 
     const apiData = await requestApi(productQuery(variables));
+
+    if (apiData.errors)
+      this.error(400, `Could Not Find A Product Named: ${params.slug}`);
+
     return { product: apiData.data.product };
   }
 </script>
