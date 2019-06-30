@@ -2,10 +2,8 @@
   import { onMount } from "svelte";
   import { transformImageUrl } from "../../helpers/utils.js";
 
-  import Loading from "./Loading.svelte";
-
-  export let product,
-    size = null;
+  export let product;
+  export let size = null;
 
   let showError = false;
   let error = "Could Not Load Image";
