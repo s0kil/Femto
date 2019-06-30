@@ -69,7 +69,8 @@
 
   a {
     text-decoration: none;
-    display: inline-block;
+    display: block;
+    width: 100%;
   }
 </style>
 
@@ -83,7 +84,7 @@
       <div class="product">
 
         <a href="store/{product.id}" rel="prefetch">
-          <Image {product} size={300} />
+          <Image {product} size={250} />
           <p>{product.name}</p>
         </a>
 

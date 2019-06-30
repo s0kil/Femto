@@ -50,7 +50,7 @@
     <div class="product">
 
       <div class="image">
-        <Image {product} />
+        <Image size={600} {product} />
       </div>
 
       <h1>{product.name}</h1>
