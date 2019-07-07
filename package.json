@@ -15,10 +15,10 @@
     "dotenv": "^8.0.0",
     "express-minify-html": "^0.12.0",
     "fast-json-body": "^1.1.0",
-    "graphql": "^14.4.1",
-    "like-json": "^1.0.19",
+    "graphql": "^14.4.2",
+    "like-json": "^1.0.20",
     "loadjs": "^3.6.1",
-    "magic-string": "^0.25.2",
+    "magic-string": "^0.25.3",
     "node-cache": "^4.2.0",
     "on-idle": "^3.1.4",
     "polka": "^0.5.2",
@@ -30,15 +30,15 @@
     "svelte-loadable": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.5.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/runtime": "^7.5.1",
     "assert": "^2.0.0",
     "graphql-query-compress": "^1.2.2",
     "npm-run-all": "^4.1.5",
-    "rollup": "^1.16.3",
+    "rollup": "^1.16.6",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^9.1.6",
     "rollup-plugin-css-porter": "^1.0.2",
@@ -48,7 +48,7 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.0",
-    "svelte": "^3.6.2"
+    "svelte": "^3.6.5"
   },
   "optionalDependencies": {
     "iltorb": "^2.4.3",
