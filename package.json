@@ -29,12 +29,7 @@
     "sirv": "^0.4.0",
     "string-hash": "^1.1.3",
     "supports-webp": "^2.0.1",
-<<<<<<< HEAD
     "svelte-loadable": "^1.3.0"
-=======
-    "svelte-loadable": "^1.0.1",
-    "snyk": "^1.189.0"
->>>>>>> origin/snyk-fix-7c0297b2b3d368f856f7e9f9f292a803
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -55,6 +50,7 @@
     "rollup-plugin-svelte": "^5.0.1",
     "rollup-plugin-terser": "^4.0.4",
     "sapper": "^0.27.9",
+    "snyk": "^1.238.0",
     "svelte": "^3.12.1"
   },
   "optionalDependencies": {
@@ -63,12 +59,6 @@
     "node-zopfli-es": "^1.0.3"
   },
   "engines": {
-<<<<<<< HEAD
     "node": "12.x"
   }
-=======
-    "node": "11.x"
-  },
-  "snyk": true
->>>>>>> origin/snyk-fix-7c0297b2b3d368f856f7e9f9f292a803
 }
